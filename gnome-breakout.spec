@@ -15,7 +15,6 @@ BuildRequires:	automake
 URL:		http://www.senet.com.au/~alcaron/software.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 GNOME clone of Breakout the classic arcade game.
