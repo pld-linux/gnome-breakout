@@ -29,7 +29,7 @@ GNOME klon klasycznej gry Breakout.
 %build
 rm -rf missing
 %{__gettextize}
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 %configure
@@ -45,8 +45,6 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README TODO
-
 %find_lang %{name}
 
 %clean
@@ -54,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-breakout
 %{_datadir}/gnome-breakout
 %{_pixmapsdir}/gnome-breakout.png
