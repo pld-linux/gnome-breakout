@@ -5,8 +5,6 @@ Version:	0.5.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Group(de):	X11/Applikationen/Spiele
-Group(pl):	X11/Aplikacje/Gry
 Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 BuildRequires:	gettext-devel
