@@ -1,8 +1,8 @@
 Summary:	GNOME clone of Breakout the classic arcade game
 Summary(pl):	GNOME klon klasycznej gry Breakout
 Name:		gnome-breakout
-Version:	0.5
-Release:	2
+Version:	0.5.2
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
@@ -12,6 +12,8 @@ Source1:	%{name}.png
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	imlib-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 URL:		http://www.senet.com.au/~alcaron/software.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,7 +29,11 @@ GNOME klon klasycznej gry Breakout.
 %setup -q
 
 %build
+rm -rf missing
 gettextize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 %configure
 %{__make}
 
