@@ -41,7 +41,7 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Gamesdir=%{_applnkdir}/Games/Arcade
+	Gamesdir=%{_desktopdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
@@ -56,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-breakout
 %{_datadir}/gnome-breakout
 %{_pixmapsdir}/gnome-breakout.png
-%{_applnkdir}/Games/Arcade/gnome-breakout.desktop
+%{_desktopdir}/gnome-breakout.desktop
