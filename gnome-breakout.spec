@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.gz
+# Source0-md5:	68b329da9893e34099c7d8ad5cb9c940
 Source1:	%{name}.png
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
