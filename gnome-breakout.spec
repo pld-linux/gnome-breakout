@@ -3,15 +3,15 @@
 %define release  1mdk
 %define prefix   /usr
 
-Summary		: A cool game for GNOME.
-Name		: %{name}
-Version		: %{version}
-Prefix 		: %{prefix}
-Release         : %{release}
-Copyright	: GPL
-Group		: Games/Arcade
-Source		: http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.bz2
-Buildroot	: %{_tmppath}/%{name}-%{version}-root
+Summary:	A cool game for GNOME.
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+License:	GPL
+Group:		Applications/Games/Arcade
+######		Unknown group!
+Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.bz2
+Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A breakout clone for GNOME.
@@ -19,29 +19,25 @@ A breakout clone for GNOME.
 %prep
 rm -rf $RPM_BUILD_ROOT
 
-%setup
+%setup -q
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" \
-	./configure --prefix=%{prefix}
-make
+	./configure --prefix=%{_prefix}
+%{__make}
 
 
 %install
-make DESTDIR="$RPM_BUILD_ROOT" install
+rm -rf $RPM_BUILD_ROOT
+%{__make} DESTDIR="$RPM_BUILD_ROOT" install
 
 %clean
 rm -rf "$RPM_BUILD_ROOT"
 
 
 %files
-%defattr(-,root,root)
+%defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
-%{prefix}/bin/gnome-breakout
-%{prefix}/share/pixmaps/gnome-breakout/*
-%{prefix}/share/gnome/apps/Games/gnome-breakout.desktop
-
-%changelog
-* Tue Apr 18 2000 Lenny Cartier <lenny@mandrakesoft.com> 0.3.1-1mdk
-- first spec
-- new in contribs
+%attr(755,root,root) %{_bindir}/gnome-breakout
+%{_datadir}/pixmaps/gnome-breakout/*
+%{_applnkdir}/Games/gnome-breakout.desktop
