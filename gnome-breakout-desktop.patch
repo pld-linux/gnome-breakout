@@ -1,0 +1,23 @@
+diff -ur gnome-breakout-0.5.2.orig/gnome-breakout.desktop gnome-breakout-0.5.2/gnome-breakout.desktop
+--- gnome-breakout-0.5.2.orig/gnome-breakout.desktop	Sun Jan 28 23:59:14 2001
++++ gnome-breakout-0.5.2/gnome-breakout.desktop	Mon Dec 29 01:13:27 2003
+@@ -1,11 +1,14 @@
+ [Desktop Entry]
+ Name=GNOME Breakout
+-Name[tr]=Gnome Breakout
+ Name[de]=GNOME Breakout
++Name[tr]=GNOME Breakout
+ Comment=The classic arcade game Breakout for GNOME
+-Comment[tr]=Breakout klasiðinin Gnome teþkili
+-Comment[de]=Das klassische Arcade Spiel Breakout für GNOME
++Comment[de]=Das klassische Arcade Spiel Breakout fÃ¼r GNOME
++Comment[pl]=Klasyczna gra zrÄ™cznoÅ›ciowa Breakout dla GNOME
++Comment[tr]=Breakout klasiÄŸinin Gnome teÅŸkili
+ Exec=gnome-breakout
+ Icon=gnome-breakout.png
+-Terminal=0
+-Type=Game
++Terminal=false
++Type=Application
++Encoding=UTF-8
++# vi: encoding=utf-8
