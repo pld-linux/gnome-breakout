@@ -1,7 +1,7 @@
-diff -ur gnome-breakout-0.5.2.orig/gnome-breakout.desktop gnome-breakout-0.5.2/gnome-breakout.desktop
---- gnome-breakout-0.5.2.orig/gnome-breakout.desktop	Sun Jan 28 23:59:14 2001
-+++ gnome-breakout-0.5.2/gnome-breakout.desktop	Mon Dec 29 01:13:27 2003
-@@ -1,11 +1,14 @@
+diff -urN gnome-breakout-0.5.2.orig/gnome-breakout.desktop gnome-breakout-0.5.2/gnome-breakout.desktop
+--- gnome-breakout-0.5.2.orig/gnome-breakout.desktop	2004-12-02 12:04:15.000000000 +0100
++++ gnome-breakout-0.5.2/gnome-breakout.desktop	2004-12-02 13:40:06.664221016 +0100
+@@ -1,11 +1,15 @@
  [Desktop Entry]
  Name=GNOME Breakout
 -Name[tr]=Gnome Breakout
@@ -20,4 +20,5 @@ diff -ur gnome-breakout-0.5.2.orig/gnome-breakout.desktop gnome-breakout-0.5.2/g
 +Terminal=false
 +Type=Application
 +Encoding=UTF-8
++Categories=GTK;GNOME;Game;ArcadeGame;
 +# vi: encoding=utf-8
