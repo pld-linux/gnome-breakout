@@ -1,43 +1,57 @@
-%define name     gnome-breakout
-%define version  0.3.1
-%define release  1mdk
-%define prefix   /usr
-
-Summary:	A cool game for GNOME.
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Summary:	GNOME clone of Breakout the classic arcade game
+Summary(pl):	GNOME klon klasycznej gry Breakout
+Name:		gnome-breakout
+Version:	0.5
+Release:	1
 License:	GPL
-Group:		Applications/Games/Arcade
-######		Unknown group!
-Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.bz2
+Group:		X11/Applications/Games
+Group(de):	X11/Applikationen/Spiele
+Group(pl):	X11/Aplikacje/Gry
+Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.gz
+Source1:	%{name}.png
+BuildRequires:	gettext-devel
+BuildRequires:	gnome-libs-devel
+BuildRequires:	imlib-devel
+URL:		http://www.senet.com.au/~alcaron/software.html
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_prefix		/usr/X11R6
+
 %description
-A breakout clone for GNOME.
+GNOME clone of Breakout the classic arcade game.
+
+%description -l pl
+GNOME klon klasycznej gry Breakout.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" \
-	./configure --prefix=%{_prefix}
+gettextize --copy --force
+%configure
 %{__make}
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR="$RPM_BUILD_ROOT" install
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	Gamesdir=%{_applnkdir}/Games
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+
+gzip -9nf AUTHORS ChangeLog NEWS README TODO
+
+%find_lang %{name}
 
 %clean
-rm -rf "$RPM_BUILD_ROOT"
+rm -rf $RPM_BUILD_ROOT
 
-
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
+%doc *.gz
 %attr(755,root,root) %{_bindir}/gnome-breakout
-%{_pixmapsdir}/gnome-breakout/*
+%{_datadir}/gnome-breakout
+%{_pixmapsdir}/gnome-breakout.png
 %{_applnkdir}/Games/gnome-breakout.desktop
