@@ -8,13 +8,13 @@ Group:		X11/Applications/Games
 Source0:	http://users.senet.com.au/~alcaron/%{name}-%{version}.tar.gz
 # Source0-md5:	3464e74aae8dce37da5336ed10ea6452
 Source1:	%{name}.png
+URL:		http://www.senet.com.au/~alcaron/software.html
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	imlib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-URL:		http://www.senet.com.au/~alcaron/software.html
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
 %description
