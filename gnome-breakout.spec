@@ -2,11 +2,13 @@ Summary:	GNOME clone of Breakout the classic arcade game
 Summary(pl):	GNOME klon klasycznej gry Breakout
 Name:		gnome-breakout
 Version:	0.5.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://www.tuial.com/~alcaron/software/%{name}-%{version}.tar.gz
+# Source0-md5:	3464e74aae8dce37da5336ed10ea6452
 Source1:	%{name}.png
+#Patch0:		%{name}-desktop.patch
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	imlib-devel
@@ -25,6 +27,7 @@ GNOME klon klasycznej gry Breakout.
 
 %prep
 %setup -q
+#%patch0 -p1
 
 %build
 rm -rf missing
