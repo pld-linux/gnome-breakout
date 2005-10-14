@@ -2,7 +2,7 @@ Summary:	GNOME clone of Breakout the classic arcade game
 Summary(pl):	GNOME klon klasycznej gry Breakout
 Name:		gnome-breakout
 Version:	0.5.2
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://users.senet.com.au/~alcaron/%{name}-%{version}.tar.gz
@@ -16,6 +16,8 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_gamesdir	/var/games
 
 %description
 GNOME clone of Breakout the classic arcade game.
@@ -51,10 +53,18 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+if [ ! -f %{_gamesdir}/%{name}.scores ]; then
+	touch %{_gamesdir}/%{name}.scores
+	chown root:games %{_gamesdir}/%{name}.scores
+	chmod 664 %{_gamesdir}/%{name}.scores
+fi
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_bindir}/gnome-breakout
+%attr(2755,root,games) %{_bindir}/gnome-breakout
 %{_datadir}/gnome-breakout
+%ghost %{_gamesdir}/gnome-breakout.scores
 %{_pixmapsdir}/gnome-breakout.png
 %{_desktopdir}/gnome-breakout.desktop
