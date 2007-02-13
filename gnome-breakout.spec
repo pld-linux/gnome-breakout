@@ -1,5 +1,5 @@
 Summary:	GNOME clone of Breakout the classic arcade game
-Summary(pl.UTF-8):   GNOME klon klasycznej gry Breakout
+Summary(pl.UTF-8):	GNOME klon klasycznej gry Breakout
 Name:		gnome-breakout
 Version:	0.5.2
 Release:	6
