@@ -12,7 +12,7 @@ Patch0:		%{name}-desktop.patch
 URL:		http://www.senet.com.au/~alcaron/software.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-libs-devel
 BuildRequires:	imlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
