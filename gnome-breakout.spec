@@ -27,7 +27,7 @@ GNOME klon klasycznej gry Breakout.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 rm -rf missing
